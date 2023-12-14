@@ -6,11 +6,7 @@
 - Les valeurs des variables d'environnement prennent effet au démarrage des services Docker. Si vous modifiez les valeurs des variables d'environnement, stoppez les services et redémarrez-les,
 - En cas de modification du projet Python, reconstruire l'image Docker via `docker compose up --build`
 
-```JSON
-    "watch": "nodemon --legacy-watch app.js",
-```
-
-- Consultez les logs du service _app_ pour vérifier le bon fonctionnement de votre application Node.js
+- Consultez les logs du service _app_ pour vérifier le bon fonctionnement de votre application Python
 
 ## Connexion à la base de données MongoDB
 
