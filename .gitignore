@@ -1,4 +1,5 @@
 .DS_Store
+**/node_modules
 **/.env
 mongo_db/data
 mongodb.dump

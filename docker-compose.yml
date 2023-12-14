@@ -12,12 +12,27 @@ services:
       start_period: 50s
     ports:
       - 27018:27017
-    command: mongod
+    command: mongod --quiet --logpath /dev/null #start MongoDB + hide MongoDB logs
     env_file: ./mongo_db/.env
     volumes:
       - ./mongo_db/import:/tmp/import #si import de données, sinon commenter
       - ./mongo_db/data:/data/db
       - ./mongo_db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh #initialisation de la base de données + import ou création
+    networks:
+      - mdb
+
+  app:
+    container_name: app
+    image: node:alpine
+    command: sh -c "npm i && npm run watch"
+    working_dir: /usr/src/app
+    volumes:
+      - ./app:/usr/src/app
+    env_file:
+      - ./app/.env
+    depends_on:
+      mongo_db:
+        condition: service_healthy
     networks:
       - mdb
 
