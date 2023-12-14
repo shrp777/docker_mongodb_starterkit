@@ -1,4 +1,9 @@
-# Docker + MongoDB Starter Kit
+# Docker + MongoDB + Node.js Starter Kit
+
+## Installation
+
+- Créer les fichiers .env sur la base des fichiers .env.example fournis,
+- Pas de "npm install" dans le dossier app (l'installation sera effectuée par Docker au lancement des services)
 
 ## Connexion à la base de données MongoDB
 
