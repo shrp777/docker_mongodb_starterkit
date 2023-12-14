@@ -4,11 +4,7 @@
 
 - Créez les fichiers .env sur la base des fichiers .env.example fournis (./app/.env et ./mongo_db/.env),
 - Les valeurs des variables d'environnement prennent effet au démarrage des services Docker. Si vous modifiez les valeurs des variables d'environnement, stoppez les services et redémarrez-les,
-- N'effectuez pas de `npm install` dans le dossier ./app (l'installation sera effectuée par Docker au lancement des services),
-- Le service _app_ (Node.js) est automatiquement démarré lors du lancement des services Docker (vous n'avez pas à démarrer manuellement l'application Node.js avec un `npm start` ou `node app.js`),
-- A chaque modification d'un fichier du dossier ./app, un système de Hot Reloading redémarre l'application Node.js,
-- Si vous utilisez __Windows__ :'(
-  - adaptez le script "watch" du fichier ./app/package.json afin d'activer le Hot Reloading du service "app" (Node.js) :
+- En cas de modification du projet Python, reconstruire l'image Docker via `docker compose up --build`
 
 ```JSON
     "watch": "nodemon --legacy-watch app.js",
