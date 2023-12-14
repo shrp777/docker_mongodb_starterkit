@@ -1,4 +1,4 @@
-# Docker + MongoDB + Node.js Starter Kit
+# Docker + MongoDB + Python Starter Kit
 
 ## Installation
 
