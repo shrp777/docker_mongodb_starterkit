@@ -1,5 +1,17 @@
 # Docker + MongoDB Starter Kit
 
+## En option, création de la base de données au lancement du service MongoDB
+
+- Choisissez entre les 2 options suivantes :
+  - Option 1 : Création de la base de données, puis import manuel
+  - Option 2 : Création de la base de données, puis import automatique de données JSON (adaptez le contenu du fichier ./mongo_db/import/data.json)
+
+- Adaptez le fichier ./mongo_db/init-mongo.sh en fonction de l'option choisie
+
+- Adaptez le fichier ./docker-compose.yml en fonction de l'option choisie (cf. volumes du service mongo_db)
+
+Attention, si les données du ./mongo_db/import/data.json sont incorrectes, l'import échouera et le service mongo_db peut ne pas se lancer.
+
 ## Connexion à la base de données MongoDB
 
 ```SH
