@@ -12,12 +12,12 @@ services:
       start_period: 50s
     ports:
       - 27018:27017
-    command: mongod
+    command: mongod --quiet --logpath /dev/null
     env_file: ./mongo_db/.env
     volumes:
       - ./mongo_db/data:/data/db
       #- ./mongo_db/import:/tmp/import #si option 1 : import de données, sinon supprimer ou laisser cette ligne en commentaire
-      #- ./mongo_db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh #si option 1 ou 2 : initialisation de la base de données + import ou création, sinon supprimer ou laisser cette ligne en commentaire
+      - ./mongo_db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh #si option 1 ou 2 : initialisation de la base de données + import ou création, sinon supprimer ou laisser cette ligne en commentaire
     networks:
       - mdb
 
