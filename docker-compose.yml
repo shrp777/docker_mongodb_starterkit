@@ -16,8 +16,7 @@ services:
     env_file: ./mongo_db/.env
     volumes:
       - ./mongo_db/data:/data/db
-      #- ./mongo_db/import:/tmp/import #si option 1 : import de données, sinon supprimer ou laisser cette ligne en commentaire
-      - ./mongo_db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh #si option 1 ou 2 : initialisation de la base de données + import ou création, sinon supprimer ou laisser cette ligne en commentaire
+      - ./mongo_db/init-mongo.sh:/docker-entrypoint-initdb.d/init-mongo.sh
     networks:
       - mdb
 
@@ -26,7 +25,20 @@ services:
     image: mongo-express
     ports:
       - 8081:8081
-    env_file: ./mongo_db/.env
+    env_file: ./mongo_express/.env
+    depends_on:
+      mongo_db:
+        condition: service_healthy
+    networks:
+      - mdb
+
+  app:
+    image: node:alpine
+    command: sh -c "npm i && npm run watch"
+    working_dir: /usr/src/app
+    volumes:
+      - ./app:/usr/src/app
+    env_file: ./app/.env
     depends_on:
       mongo_db:
         condition: service_healthy

@@ -1,5 +1,12 @@
 # Docker + MongoDB Starter Kit
 
+## Installation
+
+- Créez et remplissez les fichiers de variables d'environnement, en vous inspirant des fichiers .env.example :
+
+  - ./mongo_db/.env
+  - ./mongo_express/.env
+
 ## En option, création de la base de données au lancement du service MongoDB
 
 - Choisissez entre les 2 options suivantes :
